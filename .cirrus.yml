@@ -21,7 +21,7 @@ task:
       - echo "$RCLONE_CONFIG" > ~/.config/rclone/rclone.conf
     sync_script:
       - cd ~/BuildGo && ./sync_source
-    tmate_acript:
+    tmate_script:
       - cd ~/BuildGo && ./setup_tmate
     # rom_script:
     #  - cd ~/BuildGo && ./build_rom
