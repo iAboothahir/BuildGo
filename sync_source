@@ -20,8 +20,8 @@ git config --global user.email "i.mominulislamhemal@gmail.com"
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
 
 # Clone
-git clone DT_LINK --single-branch -b elle device/$BRAND/$CODENAME
-git clone VT_LINK --single-branch -b elle vendor/$BRAND/$CODENAME
-git clone KT_LINK --single-branch -b elle kernel/$BRAND/$CODENAME
-git clone PT_LINK --single-branch -b elle device/$BRAND/$CODENAME-images
+git clone $DT_LINK --single-branch -b elle device/$BRAND/$CODENAME
+git clone $VT_LINK --single-branch -b elle vendor/$BRAND/$CODENAME
+git clone $KT_LINK --single-branch -b elle kernel/$BRAND/$CODENAME
+git clone $PT_LINK --single-branch -b elle device/$BRAND/$CODENAME-images
 git clone https://github.com/HemantSachdeva/proton-clang --depth=1 prebuilts/clang/host/linux-x86/clang-proton
