@@ -6,7 +6,7 @@ BRAND=xiaomi
 DT_LINK=https://github.com/HemantSachdeva/device_xiaomi_laurel_sprout.git
 VT_LINK=https://github.com/HemantSachdeva/vendor_xiaomi_laurel_sprout.git
 KT_LINK=https://github.com/HemantSachdeva/kernel_xiaomi_laurel_sprout.git
-PT_LINK=https://github.com/HemantSachdeva/device_xiaomi_laurel_sprout-images.git
+PT_LINK=https://gitlab.com/HemantSachdeva/device_xiaomi_laurel_sprout-images.git
 
 mkdir -p /tmp/rom
 cd /tmp/rom
