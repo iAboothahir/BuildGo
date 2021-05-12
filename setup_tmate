@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Variables
+TMATE_SOCK="/tmp/tmate.sock"
+CONTINUE_FILE="/tmp/continue"
+
+# Downlod tmate and setup it
+if [[ -z "$(which tmate)" ]]; then
+	curl -fsSL git.io/tmate.sh | bash
+fi
+
+# Generate ssh key if needed
+[[ -e ~/.ssh/id_rsa ]] || ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
+
+
+# Start tmate
+tmate -S ${TMATE_SOCK} new-session -d
+tmate -S ${TMATE_SOCK} wait tmate-ready
+
+# Display
+TMATE_SSH=$(tmate -S ${TMATE_SOCK} display -p '#{tmate_ssh}')
+
+# send tmate information to tg bot
+
+echo ${TMATE_SSH} >> tmate.txt
+
+# send tmate.txt file
+tg_sendFile() {
+	curl -F chat_id=$CHAT_ID -F document=@${1} -F parse_mode=markdown https://api.telegram.org/bot$API_BOT/sendDocument
+}
+
+tg_sendFile tmate.txt
+
+while [[ -S ${TMATE_SOCK} ]]; do
+    sleep 1
+    if [[ -e ${CONTINUE_FILE} ]]; then
+        echo -e "Continue to the next step."
+        exit 0
+    fi
+done

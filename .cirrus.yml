@@ -7,10 +7,11 @@ env: # Environt variable to pass to all tasks
 
 task:
     name: iHemal
+    timeout_in: 120m
     container:
         image: apon77/aosp:latest
         cpu: 8
-        memory: 24G
+        memory: 32G
     clone_repo_script:
       - pwd
       - git clone https://github.com/iHemal/BuildGo ~/BuildGo
@@ -20,7 +21,9 @@ task:
       - echo "$RCLONE_CONFIG" > ~/.config/rclone/rclone.conf
     sync_script:
       - cd ~/BuildGo && ./sync_source
-    rom_script:
-      - cd ~/BuildGo && ./build_rom
-    upload_ccache_script:
-      - cd ~/BuildGo && ./upload_ccache
+    tmate_acript:
+      - cd ~/BuildGo && ./setup_tmate
+    # rom_script:
+    #  - cd ~/BuildGo && ./build_rom
+    # upload_ccache_script:
+    #  - cd ~/BuildGo && ./upload_ccache
