@@ -19,6 +19,8 @@ task:
     configure_rclone_script:
       - mkdir -p ~/.config/rclone
       - echo "$RCLONE_CONFIG" > ~/.config/rclone/rclone.conf
+    download_ccache_script:
+      - cd ~/BuildGo && ./download_ccache
     sync_script:
       - cd ~/BuildGo && ./sync_source
     tmate_script:
