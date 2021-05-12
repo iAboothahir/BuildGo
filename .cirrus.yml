@@ -1,0 +1,26 @@
+env: # Environt variable to pass to all tasks
+    CIRRUS_CLONE_DEPTH: 1 # No need to clone with whole history
+    CIRRUS_WORKING_DIR: "/tmp/ci" # Where to clone repo
+    RCLONE_CONFIG: "ENCRYPTED[5628b4fb17d6e7853043e33cb3bf0a275ecd7cc26ee8a8df66ea21f05b95dae2d4b0a867939491f5100d9f29c1907cc8]"
+    CHAT_ID: "ENCRYPTED[e4ecd2061d711bf30f05a9e89555b2e37e52a674ef0893b1c510177491e78c9ec3b159471eb8414ffeb6a6945372352e]"
+    API_BOT: "ENCRYPTED[cd466a1ef71b1718d059d7f15407d9cd6bf380dbe0149f4a687c2eacb2dafc159e217a61892466073112d442e3399322]"
+
+task:
+    name: iHemal
+    container:
+        image: apon77/aosp:latest
+        cpu: 8
+        memory: 24G
+    clone_repo_script:
+      - pwd
+      - git clone https://github.com/iHemal/BuildGo ~/BuildGo
+      - chmod -R +x ~/BuildGo
+    configure_rclone_script:
+      - mkdir -p ~/.config/rclone
+      - echo "$RCLONE_CONFIG" > ~/.config/rclone/rclone.conf
+    sync_script:
+      - cd ~/BuildGo && ./sync_source
+    rom_script:
+      - cd ~/BuildGo && ./build_rom
+    upload_ccache_script:
+      - cd ~/BuildGo && ./upload_ccache
