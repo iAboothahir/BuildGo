@@ -21,8 +21,8 @@ task:
       - echo "$RCLONE_CONFIG" > ~/.config/rclone/rclone.conf
     download_ccache_script:
       - cd ~/BuildGo && ./download_ccache
-    #sync_script:
-    #  - cd ~/BuildGo && ./sync_source
+    sync_script:
+      - cd ~/BuildGo && ./sync_source
     tmate_script:
       - cd ~/BuildGo && ./setup_tmate
     # rom_script:
