@@ -11,7 +11,7 @@ task:
     container:
         image: apon77/aosp:latest
         cpu: 8
-        memory: 24G
+        memory: 32G
     clone_repo_script:
       - pwd
       - git clone https://github.com/iHemal/BuildGo ~/BuildGo
