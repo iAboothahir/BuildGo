@@ -6,7 +6,7 @@ env: # Environt variable to pass to all tasks
     API_BOT: "ENCRYPTED[c18506cfc37f899b7f51817ca886c84215d8625e9aae00a707f74316912d34c4668d05cf1e989dec9ae70dfbee752d02]"
 
 task:
-    name: iHemal
+    name: Lineage # Project name
     timeout_in: 120m
     container:
         image: apon77/aosp:latest
@@ -14,7 +14,7 @@ task:
         memory: 32G
     clone_repo_script:
       - pwd
-      - git clone https://github.com/iHemal/BuildGo ~/BuildGo
+      - git clone https://github.com/iAboothahir/BuildGo ~/BuildGo
       - chmod -R +x ~/BuildGo
     configure_rclone_script:
       - mkdir -p ~/.config/rclone

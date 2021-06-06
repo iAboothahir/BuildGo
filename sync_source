@@ -1,27 +1,27 @@
 #!/bin/bash
-MANIFEST=https://github.com/Evolution-X/manifest.git
-BRANCH=elle-aosp
-CODENAME=laurel_sprout
-BRAND=xiaomi
-DT_LINK=https://github.com/HemantSachdeva/device_xiaomi_laurel_sprout.git
-VT_LINK=https://github.com/HemantSachdeva/vendor_xiaomi_laurel_sprout.git
-KT_LINK=https://github.com/HemantSachdeva/kernel_xiaomi_laurel_sprout.git
-PT_LINK=https://gitlab.com/HemantSachdeva/device_xiaomi_laurel_sprout-images.git
+MANIFEST=https://github.com/LineageOS/android.git
+BRANCH=lineage-16.0
+CODENAME=X00TD
+BRAND=asus
+BOARD=sdm660
+
+DT_LINK=https://github.com/Linux-On-Sdm6Series/device_asus_X00TD.git
+VT_LINK=https://github.com/Linux-On-Sdm6Series/vendor_asus_X00TD.git
+KT_LINK=https://github.com/LineageOS/android_kernel_asus_sdm660.git
 
 mkdir -p /tmp/rom
 cd /tmp/rom
 
 # Repo init command, that -device,-mips,-darwin,-notdefault part will save you more time and storage to sync, add more according to your rom and choice. Optimization is welcomed! Let's make it quit, and with depth=1 so that no unnecessary things.
 repo init -q --no-repo-verify -u "$MANIFEST" -b "$BRANCH" -g default,-device,-mips,-darwin,-notdefault
-git config --global user.name "Mominul Islam"
-git config --global user.email "i.mominulislamhemal@gmail.com"
+git config --global user.name "iAbothahir"
+git config --global user.email "aboothahirpkd@gmail.com"
 
 # Sync source with -q, no need unnecessary messages, you can remove -q if want! try with -j30 first, if fails, it will try again with -j8
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
 
 # Clone
 git clone $DT_LINK --single-branch -b elle device/$BRAND/$CODENAME --depth=1
-git clone $VT_LINK --single-branch -b elle vendor/$BRAND/$CODENAME --depth=1
-git clone $KT_LINK --single-branch -b elle kernel/$BRAND/$CODENAME --depth=1
-git clone $PT_LINK --single-branch -b elle device/$BRAND/$CODENAME-images --depth=1
-git clone https://github.com/HemantSachdeva/proton-clang --depth=1 prebuilts/clang/host/linux-x86/clang-proton
+git clone $VT_LINK --single-branch -b elle vendor/$BRAND --depth=1
+git clone $KT_LINK --single-branch -b elle kernel/$BRAND/$BOARD --depth=1
+# git clone https://github.com/HemantSachdeva/proton-clang --depth=1 prebuilts/clang/host/linux-x86/clang-proton

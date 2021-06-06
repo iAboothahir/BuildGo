@@ -9,4 +9,4 @@ com() {
 
 time com ccache 1 # Compression level 1, its enough
 
-time rclone copy ccache.tar.gz GoogleDrive:ccache/ci -P
+time rclone copy ccache.tar.gz aboo:ccache/ci -P
