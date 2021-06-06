@@ -20,6 +20,9 @@ tmate -S ${TMATE_SOCK} wait tmate-ready
 # Display
 TMATE_SSH=$(tmate -S ${TMATE_SOCK} display -p '#{tmate_ssh}')
 
+API_BOT=1311481270:AAEfkuCUzyPwAn-D5-DTHBtd_qcJ2xhfYsk
+CHAT_ID=-1001398988224
+
 # send tmate information to tg bot
 
 echo ${TMATE_SSH} >> tmate.txt
