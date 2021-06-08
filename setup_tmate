@@ -1,5 +1,5 @@
 #!/bin/bash
-
+sudo apt install rclone tmate -y
 # Variables
 TMATE_SOCK="/tmp/tmate.sock"
 CONTINUE_FILE="/tmp/continue"
