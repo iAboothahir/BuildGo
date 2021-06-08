@@ -7,6 +7,6 @@ com() {
     tar --use-compress-program="pigz -k -$2 " -cf $1.tar.gz $1
 }
 
-time com ccache 1 # Compression level 1, its enough
+time com ccache0 1 # Compression level 1, its enough
 
-time rclone copy ccache.tar.gz aboo:ccache/ci -P
+time rclone copy ccache0.tar.gz aboo:cirrus/ccache/ci -P
