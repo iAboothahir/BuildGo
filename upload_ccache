@@ -9,4 +9,4 @@ com() {
 
 time com ccache0 1 # Compression level 1, its enough
 
-time rclone copy ccache0.tar.gz aboo:cirrus/ccache/ci -P
+time rclone copy ccache0.tar.gz aboo:cirrus/ccache/ci2 -P
