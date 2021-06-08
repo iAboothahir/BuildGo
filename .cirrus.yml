@@ -25,9 +25,9 @@ task:
       - cd ~/BuildGo && ./dummy_script
     sync_script:
       - cd ~/BuildGo && ./sync_source
-    rom_script:
-      - cd ~/BuildGo && ./build_rom
-    upload_ccache_script:
-      - cd ~/BuildGo && ./upload_ccache
-     # tmate_script:
-     # - cd ~/BuildGo && ./setup_tmate
+    tmate_script:
+      - cd ~/BuildGo && ./setup_tmate
+    # rom_script:
+    #  - cd ~/BuildGo && ./build_rom
+    # upload_ccache_script:
+    # - cd ~/BuildGo && ./upload_ccache
