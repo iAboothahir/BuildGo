@@ -23,8 +23,8 @@ task:
       - cd ~/BuildGo && ./download_ccache
     dumb_script:
       - cd ~/BuildGo && ./dummy_script
-    sync_script:
-      - cd ~/BuildGo && ./sync_source
+    #sync_script:
+    #  - cd ~/BuildGo && ./sync_source
     tmate_script:
       - cd ~/BuildGo && ./setup_tmate
     # rom_script:
