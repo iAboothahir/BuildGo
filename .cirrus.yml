@@ -6,7 +6,7 @@ env: # Environt variable to pass to all tasks
     API_BOT: "ENCRYPTED[0a81f6463d520e317916a3562aa86e5669a3ccb8df59835dc3bbf42f90088148d532d2f5d4605579bb7ee32cc6875830]"
 
 task:
-    name: Lineage # Project name
+    name: AOSP # Project name
     timeout_in: 120m
     container:
         image: dopaemon/android2:latest
